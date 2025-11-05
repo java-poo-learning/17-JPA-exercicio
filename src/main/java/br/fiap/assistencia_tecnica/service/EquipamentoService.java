@@ -7,6 +7,7 @@ import br.fiap.assistencia_tecnica.repository.EquipamentoRepository;
 import br.fiap.assistencia_tecnica.web.dto.ClienteDTO;
 import br.fiap.assistencia_tecnica.web.dto.EquipamentoDTO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
@@ -37,6 +38,8 @@ public class EquipamentoService {
         equipamento.setNumeroSerie(dto.getNumeroSerie());
         return equipamentoRepository.save(equipamento);
     }
+
+    @Transactional (readOnly = true)
     public List<Equipamento> listar () {
         return equipamentoRepository.findAll();
     }

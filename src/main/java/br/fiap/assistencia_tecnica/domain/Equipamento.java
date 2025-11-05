@@ -17,7 +17,7 @@ public class Equipamento {
     @Column(name = "ID_EQUIP")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_CLIENTE", foreignKey = @ForeignKey(name =  "FK_EQUIP_CLIENTE"))
     private Cliente cliente;
 
